@@ -5,7 +5,6 @@ using UnityEngine;
 public class JumpAction : MonoBehaviour
 {
     [SerializeField] float _jumpPower = 10;
-    [SerializeField] float _speed = 5;
     Rigidbody2D _rb;
 
     private void Start()
@@ -19,12 +18,7 @@ public class JumpAction : MonoBehaviour
         {
            Jump();
         }
-        float h = Input.GetAxisRaw("Horizontal");
-        if (h != 0)
-        {
-            Vector2 dir = new Vector2(h, 0).normalized;
-            _rb.velocity = dir * _speed;
-        }
+        
     }
     public void Jump()
     {
