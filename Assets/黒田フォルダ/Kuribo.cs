@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Kuribo : MonoBehaviour
+public class Kuribo : EnemyBase
 {
+    [SerializeField] GameObject _kuroboDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,20 +18,14 @@ public class Kuribo : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void PlayerAttack()
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(this.gameObject);
-
-        }
+        Destroy(this.gameObject);
+        Instantiate(_kuroboDead, this.transform.position, _kuroboDead.transform.rotation);
+    }
+    public override void Stomp()
+    {
+        Instantiate(_kuroboDead);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Attack")
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }
