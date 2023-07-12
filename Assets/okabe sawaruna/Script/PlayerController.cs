@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         if (h != 0)
         {
-            Vector2 dir = new Vector2(h, 0).normalized;
-            _rb.velocity = dir * _speed;
+            Vector2 dir = new Vector2(h * _speed, _rb.velocity.y);
+            _rb.velocity = dir;
         }
 }
 }
