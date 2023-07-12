@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,5 +21,5 @@ public class PlayerController : MonoBehaviour
             Vector2 dir = new Vector2(h, 0).normalized;
             _rb.velocity = dir * _speed;
         }
-    }
+}
 }
