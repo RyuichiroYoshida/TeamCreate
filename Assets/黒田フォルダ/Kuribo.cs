@@ -20,12 +20,13 @@ public class Kuribo : EnemyBase
     }
     public override void PlayerAttack()
     {
-        Destroy(this.gameObject);
         Instantiate(_kuroboDead, this.transform.position, _kuroboDead.transform.rotation);
+        Destroy(this.gameObject);
     }
     public override void Stomp()
     {
-        Instantiate(_kuroboDead);
+        Instantiate(_kuroboDead, this.transform.position, _kuroboDead.transform.rotation);
+        Destroy(this.gameObject);
     }
 
 }
