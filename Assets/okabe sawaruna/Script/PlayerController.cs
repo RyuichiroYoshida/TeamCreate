@@ -1,12 +1,10 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float _speed = 5;
+    [SerializeField] float _speed = 1;
+    [SerializeField] float _dashSpeed = 5f;
+    float _dash = 1;
     Rigidbody2D _rb;
 
     private void Start()
@@ -16,10 +14,15 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         float h = Input.GetAxisRaw("Horizontal");
-        if (h != 0)
+        _rb.velocity = new Vector2(h * _speed * _dash, _rb.velocity.y);
+
+        if (Input.GetKey(KeyCode.Return))
         {
-            Vector2 dir = new Vector2(h * _speed, _rb.velocity.y);
-            _rb.velocity = dir;
+            _dash = _dashSpeed;
         }
-}
+        else
+        {
+            _dash = 1;
+        }
+    }
 }
