@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5667546800669105159}
   - component: {fileID: 5667546800669105156}
   - component: {fileID: 5667546800669105158}
-  m_Layer: 0
-  m_Name: Square
+  m_Layer: 8
+  m_Name: Wall
   m_TagString: IsGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

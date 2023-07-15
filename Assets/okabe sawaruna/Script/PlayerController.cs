@@ -10,6 +10,20 @@ public class PlayerController : MonoBehaviour
     private string _isGroundTag = "IsGround";
     bool IsGround = false;
 
+    public static PlayerController Instance;
+
+    private void Awake()  //ƒVƒ“ƒOƒ‹ƒgƒ“‰»
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == _isGroundTag)
