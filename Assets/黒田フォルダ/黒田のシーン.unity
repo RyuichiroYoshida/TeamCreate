@@ -134,11 +134,11 @@ GameObject:
   - component: {fileID: 386121167}
   - component: {fileID: 386121166}
   - component: {fileID: 386121165}
-  - component: {fileID: 386121168}
   - component: {fileID: 386121169}
+  - component: {fileID: 386121170}
   m_Layer: 0
   m_Name: "\u30AF\u30EA\u30DC\u30FC"
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,19 +226,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &386121168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386121164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51fe858364164e94cbac8b818ce2ef65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deadPrefub: {fileID: 0}
 --- !u!50 &386121169
 Rigidbody2D:
   serializedVersion: 4
@@ -260,6 +247,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &386121170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386121164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada80e0af2ce59d4b8096c772265edc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stompPrefub: {fileID: 346029424975661990, guid: 370593c155bf33745988d3be764aa4b7, type: 3}
 --- !u!1 &709759652
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 1269699117}
   m_Layer: 0
   m_Name: "\u30CE\u30B3\u30CE\u30B3"
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -784,7 +784,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.09}
+  m_Size: {x: 0.88, y: 0.09}
   m_EdgeRadius: 0
 --- !u!50 &1923365241
 Rigidbody2D:

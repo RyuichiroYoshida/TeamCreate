@@ -31,10 +31,14 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(_stompPrefub, this.transform.position, _stompPrefub.transform.rotation);
-            Destroy(this.gameObject);
+            Stomp();
 
         }
     }
 
+    public virtual void Stomp()
+    {
+        Instantiate(_stompPrefub, this.transform.position, _stompPrefub.transform.rotation);
+        Destroy(this.gameObject);
+    }
 }
