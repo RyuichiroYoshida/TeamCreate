@@ -55,9 +55,11 @@ public class PlayerController : MonoBehaviour
         {
             _dash = 1;
         }
+
     }
     public void Jump()
     {
+        IsGround = false;
         _rb.AddForce(_jumpPower * Vector2.up, ForceMode2D.Impulse);
     }
 }
