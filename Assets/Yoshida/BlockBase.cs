@@ -5,13 +5,12 @@ using UnityEngine;
 public abstract class BlockBase : MonoBehaviour
 {
     public abstract void BlockBreak();
-    
+
     void Start()
     {
         
     }
 
-    
     void Update()
     {
         
@@ -22,7 +21,6 @@ public abstract class BlockBase : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             BlockBreak();
-            Destroy(gameObject);
         }
     }
 }

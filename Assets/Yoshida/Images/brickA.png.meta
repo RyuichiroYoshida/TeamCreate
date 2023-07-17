@@ -109,11 +109,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 22
+        width: 21
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,64 +126,211 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: brickA_1
+      name: brickA_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 21
+        y: 24
+        width: 11
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 835b2e7d1f6e19a44980dfc33e937333
-      internalID: 487517294
+      spriteID: 7165f5b6dbd864d44b323f53df2b7d62
+      internalID: -1946201102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: brickA_2
+      name: brickA_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 16
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b1317197d79a84eaf980cabe037b38
+      internalID: 1910411737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brickA_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562ce7eabf50f0049aef70c1b584ceee
+      internalID: -878932188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brickA_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c5f77e8c255d64cb29bf0f30de1311
+      internalID: 1181305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brickA_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6b3a79458edde4aa3f60f68264cc23
+      internalID: 1695165426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brickA_11
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 28
+        width: 11
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2905fe6a17344c40a51ae41de5e4098
+      internalID: 1717886453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brickA_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff0964fe31305014897a160322c0f4f4
-      internalID: 953771322
+      spriteID: 42fd297175925264e83e3bd4882bf698
+      internalID: -1697746531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: brickA_3
+      name: brickA_13
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 0
+        y: 5
         width: 16
-        height: 16
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d61a0334d2017fe4bbef08ae1d872066
-      internalID: -1946201102
+      spriteID: 362e30c78c17ceb40ba9102e7f473fc4
+      internalID: 650318304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brickA_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88d1eb6292f2254b8986c97139c4893
+      internalID: -1872259537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brickA_15
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 5
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00a2eb9549a4724794bcc30db2c5227
+      internalID: 1590571517
       vertices: []
       indices: 
       edges: []
@@ -201,8 +348,20 @@ TextureImporter:
     nameFileIdTable:
       brickA_0: 883045134
       brickA_1: 487517294
+      brickA_10: 1695165426
+      brickA_11: 1717886453
+      brickA_12: -1697746531
+      brickA_13: 650318304
+      brickA_14: -1872259537
+      brickA_15: 1590571517
       brickA_2: 953771322
       brickA_3: -1946201102
+      brickA_4: -991100769
+      brickA_5: 691377592
+      brickA_6: 1314764647
+      brickA_7: 1910411737
+      brickA_8: -878932188
+      brickA_9: 1181305
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
