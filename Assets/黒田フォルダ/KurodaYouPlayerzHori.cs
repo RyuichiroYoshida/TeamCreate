@@ -27,4 +27,13 @@ public class KurodaYouPlayerzHori : MonoBehaviour
             _dash = 1;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            _rb.velocity = Vector2.zero;
+            _rb.AddForce(5 * Vector2.up, ForceMode2D.Impulse);
+            Debug.Log("Stomp_Hit");
+        }
+    }
 }
