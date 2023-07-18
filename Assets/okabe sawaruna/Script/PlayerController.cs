@@ -24,11 +24,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == _isGroundTag)
         {
             IsGround = true;
+            if (TryGetComponent<PlayerAnimator>(out PlayerAnimator animator))
+            {
+                animator.IsGround();
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGround == true)
         {
             Jump();
+            Debug.Log("ƒWƒƒƒ“ƒv");
         }
         if (Input.GetKey(KeyCode.Return) && IsGround == true)
         {
