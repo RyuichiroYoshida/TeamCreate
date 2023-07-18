@@ -45,6 +45,6 @@ public class NotMoveShell : Enemy
 
     public override void Stomp()
     {
-
+        //Enemy‚ÌŠî’êƒNƒ‰ƒX‚Ì“¥‚Ü‚ê‚éˆ—‚ğ–³‹‚·‚é
     }
 }
