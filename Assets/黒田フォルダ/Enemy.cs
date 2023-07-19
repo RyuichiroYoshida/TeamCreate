@@ -8,9 +8,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject _stompPrefub;
     [SerializeField] float _moveSpeed;
+    
+
     Rigidbody2D _rb;
+    //  å¸Ç´ïœçXóp
     Vector2 _moveDirection = new Vector2(-0.6f ,0);
-    LayerMask _wallLayer = 0;
+    [SerializeField] LayerMask _wallLayer;
+    [SerializeField] LayerMask _enemyLayer;
+
+
 
     public GameObject stompPrefub { get { return _stompPrefub; } }
     // Start is called before the first frame update
@@ -58,8 +64,8 @@ public class Enemy : MonoBehaviour
         Vector2 start = this.transform.position;
         Debug.DrawLine(start, start + _moveDirection);
         RaycastHit2D hitWall = Physics2D.Linecast(start , start + _moveDirection, _wallLayer);
-
-        if(hitWall.collider)
+        RaycastHit2D hitEnemy = Physics2D.Linecast(start, start + _moveDirection, _enemyLayer);
+        if (hitWall || hitEnemy)
         {
             Debug.Log("Hitwall");
             _moveDirection.x *= -1;
