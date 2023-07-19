@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("累計コイン数")] int _coin = 0;
     public int Coin => _coin;
     [SerializeField, Header("累計スコア")] int _score = 0;
-    public int NowScore => _score;
+    public int AllScore => _score;
 
     float _timer = 0;
     public float Timer => _timer;

@@ -9,6 +9,5 @@ public class BrickBlock : BlockBase
     {
         Instantiate(_effectPrefab, transform.position, Quaternion.identity, transform.parent);
         Destroy(gameObject);
-        Destroy(_effectPrefab, 1);
     }
 }
