@@ -34,6 +34,12 @@ public class PlayerController : MonoBehaviour
                 animator.IsGround();
             }
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            _rb.velocity = Vector2.zero;
+            _rb.AddForce(5 * Vector2.up, ForceMode2D.Impulse);
+            Debug.Log("Stomp_Hit");
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
