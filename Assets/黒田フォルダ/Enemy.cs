@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     //  å¸Ç´ïœçXóp
     Vector2 _moveDirection = new Vector2(-0.6f ,0);
     [SerializeField] LayerMask _wallLayer;
-    [SerializeField] LayerMask _enemyLayer;
 
 
 
@@ -42,6 +41,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Direction();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,13 +67,16 @@ public class Enemy : MonoBehaviour
         Vector2 start = this.transform.position;
         Debug.DrawLine(start, start + _moveDirection);
         RaycastHit2D hitWall = Physics2D.Linecast(start , start + _moveDirection, _wallLayer);
-        RaycastHit2D hitEnemy = Physics2D.Linecast(start, start + _moveDirection, _enemyLayer);
-        if (hitWall || hitEnemy)
+        if (hitWall)
         {
-            Debug.Log("Hitwall");
-            _moveDirection.x *= -1;
+
+            Direction();
         }
         _rb.velocity = new Vector2(_moveDirection.x * _moveSpeed, _rb.velocity.y);
+    }
 
+    private void Direction()
+    {
+        _moveDirection.x *= -1;
     }
 }

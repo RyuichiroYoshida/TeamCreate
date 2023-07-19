@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8909274094690573423}
   m_Layer: 0
   m_Name: "\u30B3\u30A6\u30E9\u79FB\u52D5"
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8909274094690573423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,3 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 10
+  _stompPrefub: {fileID: 3172288240909620924, guid: d0d2346a8bc70394c8116e8d85440330, type: 3}
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 8

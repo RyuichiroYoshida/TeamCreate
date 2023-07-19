@@ -158,7 +158,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.01}
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.115
 --- !u!212 &386121166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -264,9 +264,6 @@ MonoBehaviour:
   _wallLayer:
     serializedVersion: 2
     m_Bits: 8
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &709759652
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,8 +426,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797668005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.2778, y: -3, z: 0}
-  m_LocalScale: {x: 51.36252, y: 1, z: 1}
+  m_LocalPosition: {x: 2.591, y: -3, z: 0}
+  m_LocalScale: {x: 21.062346, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -610,9 +607,6 @@ MonoBehaviour:
   _wallLayer:
     serializedVersion: 2
     m_Bits: 8
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!61 &1269699114
 BoxCollider2D:
   m_ObjectHideFlags: 0
