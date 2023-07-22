@@ -13,8 +13,8 @@ public class MoveShell : MonoBehaviour
     int _moveTimer;
 
     [SerializeField] LayerMask _wallLayer;
+    [SerializeField]bool _dead = false;
 
-    bool _dead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,22 +38,17 @@ public class MoveShell : MonoBehaviour
         Vector2 start = this.transform.position;
         Debug.DrawLine(start, start + _moveDirection);
 
+
             RaycastHit2D hitWall = Physics2D.Linecast(start, start + _moveDirection, _wallLayer);
         if (hitWall)
         {
-            Destroy(gameObject,1f);
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-            _rb.velocity = Vector2.zero;
-            _rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
-            _rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
-            _dead = true;
-
+            _moveDirection *= -1;
+            
         }
-        if (this.gameObject.GetComponent<BoxCollider2D>().enabled == true)
-        {
+
             _rb.velocity = new Vector2(_moveDirection.x * _moveSpeed, _rb.velocity.y);
-        }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -81,11 +76,7 @@ public class MoveShell : MonoBehaviour
     private void FixedUpdate()
     {
         _moveTimer++;
-        //死んでいるときに吹き飛んで回す
-        if (_dead)
-        {
-            _rb.rotation += 2;
-        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

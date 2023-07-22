@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896a7d35b6f3e184998f8ba0af9328db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 10
+  _moveSpeed: 30
   _stompPrefub: {fileID: 3172288240909620924, guid: d0d2346a8bc70394c8116e8d85440330, type: 3}
   _wallLayer:
     serializedVersion: 2

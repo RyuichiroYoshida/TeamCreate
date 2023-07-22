@@ -33,7 +33,6 @@ public class KurodaYouPlayerzHori : MonoBehaviour
         {
             _rb.velocity = Vector2.zero;
             _rb.AddForce(5 * Vector2.up, ForceMode2D.Impulse);
-            Debug.Log("Stomp_Hit");
         }
     }
 }
