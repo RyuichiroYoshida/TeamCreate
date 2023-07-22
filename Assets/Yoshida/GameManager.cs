@@ -52,6 +52,6 @@ public class GameManager : MonoBehaviour
     /// <summary>ƒS[ƒ‹ˆ—</summary>
     public void Goal()
     {
-
+        print("goal");
     }
 }

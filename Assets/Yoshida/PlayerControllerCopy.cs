@@ -25,7 +25,7 @@ public class PlayerControllerCopy : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && IsGround == false)
+        if (collision.gameObject.tag == "Block" && IsGround == false)
         {
 
         }
