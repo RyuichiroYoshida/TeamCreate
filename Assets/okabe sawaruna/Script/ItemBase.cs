@@ -15,6 +15,8 @@ public abstract class ItemBase : MonoBehaviour
     Vector2 _moveDirection = Vector2.right;
     Rigidbody2D _rb = default;
 
+    protected GameObject _mario;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -62,6 +64,7 @@ public abstract class ItemBase : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player"))
         {
+            _mario = collision.gameObject;
            GetItem();
         }
     }
