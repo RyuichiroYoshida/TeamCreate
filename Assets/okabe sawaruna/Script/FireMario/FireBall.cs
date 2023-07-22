@@ -6,6 +6,8 @@ using UnityEngine;
 public class FireBall : MonoBehaviour
 {
     [SerializeField] float _speed = 1f;
+   
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
