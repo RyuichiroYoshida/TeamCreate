@@ -13,6 +13,8 @@ public class MoveShell : MonoBehaviour
     int _moveTimer;
 
     [SerializeField] LayerMask _wallLayer;
+
+    bool _dead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,15 +37,17 @@ public class MoveShell : MonoBehaviour
         //自身が壁に当たった時、吹き飛んで消える
         Vector2 start = this.transform.position;
         Debug.DrawLine(start, start + _moveDirection);
-        RaycastHit2D hitWall = Physics2D.Linecast(start, start + _moveDirection, _wallLayer);
+
+            RaycastHit2D hitWall = Physics2D.Linecast(start, start + _moveDirection, _wallLayer);
         if (hitWall)
         {
-            Destroy(gameObject,2f);
+            Destroy(gameObject,1f);
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
             _rb.velocity = Vector2.zero;
             _rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
             _rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
+            _dead = true;
 
         }
         if (this.gameObject.GetComponent<BoxCollider2D>().enabled == true)
@@ -57,7 +61,7 @@ public class MoveShell : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //動くコウラが敵に当たった時の処理
-            Destroy(collision.gameObject, 2f);//破壊
+            Destroy(collision.gameObject, 1f);//破壊
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             
             if (collision.gameObject.GetComponent<CircleCollider2D>() != null)
@@ -78,7 +82,7 @@ public class MoveShell : MonoBehaviour
     {
         _moveTimer++;
         //死んでいるときに吹き飛んで回す
-        if (this.gameObject.GetComponent<BoxCollider2D>().enabled == false)
+        if (_dead)
         {
             _rb.rotation += 2;
         }
