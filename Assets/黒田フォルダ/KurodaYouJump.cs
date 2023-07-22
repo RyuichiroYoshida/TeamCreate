@@ -25,7 +25,6 @@ public class KurodaYouJump : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(IsGround);
         if (Input.GetButtonDown("Jump") && IsGround == true)
         {
             Jump();
