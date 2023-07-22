@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6840810484153917290}
   - component: {fileID: 6840810484153917288}
   - component: {fileID: 6840810484153917289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StandMario
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   _speed: 5
   _dashSpeed: 5
   _jumpPower: 8
+  _rb: {fileID: 0}
 --- !u!50 &6840810484153917288
 Rigidbody2D:
   serializedVersion: 4
@@ -185,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6840810484932790351}
   - component: {fileID: 6840810484932790348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MarioCheckGround
   m_TagString: Player
   m_Icon: {fileID: 0}

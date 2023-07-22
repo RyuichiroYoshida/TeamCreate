@@ -799,9 +799,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: StandMario
       objectReference: {fileID: 0}
-    - target: {fileID: 6840810484153917297, guid: 1d04db854ba49f649a215dfb69dc0823, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d04db854ba49f649a215dfb69dc0823, type: 3}

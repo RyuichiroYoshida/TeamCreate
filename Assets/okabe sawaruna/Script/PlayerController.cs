@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _dashSpeed = 5f;
     [SerializeField] float _jumpPower = 10;
     float _dash = 1;
-    Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     private string _isGroundTag = "IsGround";
     bool IsGround = false;
 
@@ -45,12 +45,13 @@ public class PlayerController : MonoBehaviour
     {
         IsGround = false;
     }
-    private void Start()
+    protected void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
     public void Update()
     {
+        
         float h = Input.GetAxisRaw("Horizontal");
         _rb.velocity = new Vector2(h * _speed * _dash, _rb.velocity.y);
         if (Input.GetButtonDown("Jump") && IsGround == true)
@@ -66,12 +67,19 @@ public class PlayerController : MonoBehaviour
         {
             _dash = 1;
         }
-
+        if (Input.GetButtonDown("Fire2"))
+        {
+            FireAttack();
+        }
     }
     public void Jump()
     {
         IsGround = false;
         _rb.AddForce(_jumpPower * Vector2.up, ForceMode2D.Impulse);
+    }
+    public virtual void FireAttack()
+    {
+
     }
 }
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1776303218890099220}
   - component: {fileID: 1776303218890099221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'MarioCheckGround '
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -59,11 +59,11 @@ GameObject:
   - component: {fileID: 1776303219571808857}
   - component: {fileID: 1776303219571808856}
   - component: {fileID: 1776303219571808859}
-  - component: {fileID: 1776303219571808858}
   - component: {fileID: 1776303219571808860}
+  - component: {fileID: -3177753554645224056}
   - component: {fileID: 1776303219571808863}
   - component: {fileID: 1776303219571808862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireMarioStand
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -83,6 +83,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1776303218890099220}
+  - {fileID: 5446097349587650228}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -159,21 +160,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1776303219571808858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776303219571808853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e3d80101e4eb944d9be03801a126568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _dashSpeed: 5
-  _jumpPower: 8
 --- !u!114 &1776303219571808860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +172,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014d85d149e64fe4cb349b1c300e8e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3177753554645224056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776303219571808853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fad99d31b9eb24aaa579c97ee93e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _dashSpeed: 5
+  _jumpPower: 8
+  _rb: {fileID: 0}
+  _fireBallPrefab: {fileID: 2459917725900287688, guid: 2ef9e055d8694ca42bc65c7d2190a542, type: 3}
 --- !u!50 &1776303219571808863
 Rigidbody2D:
   serializedVersion: 4
@@ -223,3 +226,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.75, y: 0.9375}
   m_Direction: 0
+--- !u!1 &3433656324860052246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5446097349587650228}
+  m_Layer: 6
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5446097349587650228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433656324860052246}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: -0.27, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1776303219571808857}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
