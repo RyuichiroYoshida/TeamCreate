@@ -32,16 +32,24 @@ public class MoveShell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //自身が壁に当たった時、吹き飛んで消える
         Vector2 start = this.transform.position;
         Debug.DrawLine(start, start + _moveDirection);
         RaycastHit2D hitWall = Physics2D.Linecast(start, start + _moveDirection, _wallLayer);
         if (hitWall)
         {
-            _moveDirection.x *= -1.0f;
-            
-        }
+            Destroy(gameObject,2f);
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
-        _rb.velocity = new Vector2(_moveDirection.x * _moveSpeed, _rb.velocity.y);
+            _rb.velocity = Vector2.zero;
+            _rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
+            _rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
+
+        }
+        if (this.gameObject.GetComponent<BoxCollider2D>().enabled == true)
+        {
+            _rb.velocity = new Vector2(_moveDirection.x * _moveSpeed, _rb.velocity.y);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,8 +59,16 @@ public class MoveShell : MonoBehaviour
             //動くコウラが敵に当たった時の処理
             Destroy(collision.gameObject, 2f);//破壊
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            
+            if (collision.gameObject.GetComponent<CircleCollider2D>() != null)
+            {
+                collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;//ｴﾈﾐｰの当たり判定をなくす
+            }
+            else if (collision.gameObject.GetComponent<BoxCollider2D>() != null)
+            {
+                collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;//ｴﾈﾐｰの当たり判定をなくす
+            }
 
-            collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;//当たり判定をなくす
             rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
             rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
         }
@@ -61,6 +77,11 @@ public class MoveShell : MonoBehaviour
     private void FixedUpdate()
     {
         _moveTimer++;
+        //死んでいるときに吹き飛んで回す
+        if (this.gameObject.GetComponent<BoxCollider2D>().enabled == false)
+        {
+            _rb.rotation += 2;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

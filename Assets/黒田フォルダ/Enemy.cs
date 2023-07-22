@@ -28,12 +28,14 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Move();
-        
-        if(GetComponent<CircleCollider2D>() != null && GetComponent<CircleCollider2D>().enabled == false || GetComponent<BoxCollider2D>() != null && GetComponent<BoxCollider2D>().enabled == false)
-        {
-            _rb.rotation += 1;
-        }
 
+    }
+    private void FixedUpdate()
+    {
+        if (GetComponent<CircleCollider2D>() != null && GetComponent<CircleCollider2D>().enabled == false || GetComponent<BoxCollider2D>() != null && GetComponent<BoxCollider2D>().enabled == false)
+        {
+            _rb.rotation += 2;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
