@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     float _timer = 0;
     public float Timer => _timer;
+    bool _isGoal = false;
+    public bool IsGoal => _isGoal;
 
     public static GameManager instance;
 
@@ -64,10 +66,5 @@ public class GameManager : MonoBehaviour
     public void TitleButtonClick()
     {
         SceneManager.LoadScene(0);
-    }
-
-    public void ReturnButtonClick()
-    {
-        SceneManager.LoadScene(1);
     }
 }
