@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public int Coin => _coin;
     [SerializeField, Header("累計スコア")] int _score = 0;
     public int AllScore => _score;
+    [SerializeField, Header("リトライボタン")] GameObject _returnButton;
+    [SerializeField, Header("タイトルボタン")] GameObject _titleButton;
 
     float _timer = 0;
     public float Timer => _timer;
@@ -28,7 +31,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-           
+        _returnButton?.SetActive(false);
+        _titleButton?.SetActive(false);
     }
 
     void Update()
@@ -46,12 +50,24 @@ public class GameManager : MonoBehaviour
     /// <summary>ゲームオーバー処理</summary>
     public void IsGameOver()
     {
-
+        _returnButton?.SetActive(true);
+        print("GameOver");
     }
 
     /// <summary>ゴール処理</summary>
     public void Goal()
     {
-        print("goal");
+        _titleButton?.SetActive(true);
+        print("Goal");
+    }
+
+    public void TitleButtonClick()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ReturnButtonClick()
+    {
+        SceneManager.LoadScene(1);
     }
 }
