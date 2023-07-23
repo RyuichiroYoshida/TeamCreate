@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _dashSpeed: 5
+  _dashSpeed: 1.5
   _jumpPower: 8
   _rb: {fileID: 0}
   _fireBallPrefab: {fileID: 2459917725900287688, guid: 2ef9e055d8694ca42bc65c7d2190a542, type: 3}
