@@ -8,7 +8,7 @@ public class HoleController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.IsGameOver();
+            GameManager.instance.GameOver();
         }
     }
 }

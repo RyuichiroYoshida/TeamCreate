@@ -2,18 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField, Header("累計コイン数")] int _coin = 0;
-    public int Coin => _coin;
-    [SerializeField, Header("累計スコア")] int _score = 0;
-    public int AllScore => _score;
+    [SerializeField, Header("所持コイン数")] int _hasCoin = 0;
+    public int HasCoin => _hasCoin;
+    int _totalCoin;
+    public int TotalCoin => _totalScore;
+    [SerializeField, Header("所持コインテキスト格納用")] Text _hasCoinText;
+
+    [SerializeField, Header("所持スコア")] int _hasScore = 0;
+    public int HasScore => _hasScore;
+    int _totalScore;
+    public int TotalScore => _totalScore;
+    [SerializeField, Header("所持スコアテキスト格納用")] Text _hasScoreText;
+
     [SerializeField, Header("リトライボタン")] GameObject _returnButton;
     [SerializeField, Header("タイトルボタン")] GameObject _titleButton;
+    [SerializeField, Header("制限時間テキスト格納用")] Text _timeText;
+    [SerializeField, Header("制限時間")] float _timeLimit = 300;
+    public float TimeLimit => _timeLimit;
+    [SerializeField, Header("残り時間スコア反映倍率")] int _timeMagnification = 10;
+    int _second;
 
-    float _timer = 0;
-    public float Timer => _timer;
+    bool _isGameOver = false;
+    public bool IsGameOver => _isGameOver;
     bool _isGoal = false;
     public bool IsGoal => _isGoal;
 
@@ -39,28 +53,58 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        _timer += Time.deltaTime;
+        if (_isGameOver == false || _isGoal == false)
+        {
+            _timeLimit -= Time.deltaTime;
+            _second = (int)_timeLimit;
+            _timeText.text = ("Time\n" + _second.ToString());
+            if (_second <= 0)
+            {
+                GameOver();
+            }
+
+            _hasCoinText.text = ("Coin\n" + _hasCoin.ToString());
+            _hasScoreText.text = ("Score\n" + _hasScore.ToString());
+        }
     }
 
     /// <summary>スコア加算メソッド</summary>
     /// <param name="addScore">加算するスコア数</param>
     public void AddScore(int addScore)
     {
-        _score += addScore;
+        _hasScore += addScore;
+    }
+
+    public void AddCoin(int addCoin)
+    {
+        _hasCoin += addCoin;
     }
 
     /// <summary>ゲームオーバー処理</summary>
-    public void IsGameOver()
+    public void GameOver()
     {
+        _isGameOver = true;
         _returnButton?.SetActive(true);
+        Save();
         print("GameOver");
     }
 
     /// <summary>ゴール処理</summary>
     public void Goal()
     {
+        _hasCoin += _second * _timeMagnification;
         _titleButton?.SetActive(true);
+        Save();
         print("Goal");
+    }
+
+    void Save()
+    {
+        _totalScore += _hasScore;
+        _totalCoin += _hasCoin;
+
+        PlayerPrefs.SetInt("Coin", _totalCoin);
+        PlayerPrefs.SetInt("Score", _totalScore);
     }
 
     public void TitleButtonClick()
