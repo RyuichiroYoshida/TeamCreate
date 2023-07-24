@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("残り時間スコア反映倍率")] int _timeMagnification = 10;
     int _second;
 
+    [SerializeField, Header("ゴールポストアニメーション")] Animator _goalAnim;
+
     bool _isGameOver = false;
     public bool IsGameOver => _isGameOver;
     bool _isGoal = false;
@@ -53,19 +55,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (_isGameOver == false || _isGoal == false)
+        if (_isGameOver == false && _isGoal == false)
         {
             _timeLimit -= Time.deltaTime;
             _second = (int)_timeLimit;
-            _timeText.text = ("Time\n" + _second.ToString());
             if (_second <= 0)
             {
                 GameOver();
             }
-
-            _hasCoinText.text = ("Coin\n" + _hasCoin.ToString());
-            _hasScoreText.text = ("Score\n" + _hasScore.ToString());
         }
+        _timeText.text = ("Time\n" + _second.ToString());
+        _hasCoinText.text = ("Coin\n" + _hasCoin.ToString());
+        _hasScoreText.text = ("Score\n" + _hasScore.ToString());
     }
 
     /// <summary>スコア加算メソッド</summary>
@@ -92,8 +93,12 @@ public class GameManager : MonoBehaviour
     /// <summary>ゴール処理</summary>
     public void Goal()
     {
-        _hasCoin += _second * _timeMagnification;
+        _isGoal = true;
+        _hasScore += _second * _timeMagnification;
+        _timeLimit = 0;
+        _second = 0;
         _titleButton?.SetActive(true);
+        _goalAnim.Play("GoalShot");
         Save();
         print("Goal");
     }
