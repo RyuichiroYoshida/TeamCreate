@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class ParticleLIfe : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField, Header("パーティクル表示時間")] float _particleLife = 1;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(gameObject, _particleLife);
     }
 }
