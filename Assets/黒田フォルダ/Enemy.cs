@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Attack" || collision.gameObject.tag == "Player")
         {
+            GameManager.instance.AddScore(1000);
             Destroy(this.gameObject);
         }
         if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Shell")
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour
     public virtual void Stomp()
     {
         Instantiate(_stompPrefub, this.transform.position, _stompPrefub.transform.rotation);
+        GameManager.instance.AddScore(1000);
         Destroy(this.gameObject);
     }
 

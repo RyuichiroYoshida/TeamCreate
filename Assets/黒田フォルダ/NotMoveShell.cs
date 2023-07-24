@@ -29,6 +29,7 @@ public class NotMoveShell : Enemy
         if (collision.gameObject.tag == "Player" && _moveTimer > 20)
         {
             Instantiate(enemy.stompPrefub, this.transform.position, enemy.stompPrefub.transform.rotation);
+            GameManager.instance.AddScore(1000);
             Destroy(this.gameObject);
 
 
@@ -36,6 +37,7 @@ public class NotMoveShell : Enemy
 
         if (collision.gameObject.tag == "Attack")
         {
+            GameManager.instance.AddScore(1000);
             Destroy(this.gameObject);
         }
     }
@@ -44,6 +46,7 @@ public class NotMoveShell : Enemy
         if (collision.gameObject.tag == "Player" && _moveTimer > 20)
         {
             Instantiate(enemy.stompPrefub, this.transform.position, enemy.stompPrefub.transform.rotation);
+            GameManager.instance.AddScore(1000);
             Destroy(this.gameObject);
 
         }

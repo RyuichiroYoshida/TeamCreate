@@ -73,6 +73,7 @@ public class MoveShell : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
+            GameManager.instance.AddScore(1000);
             Destroy(this.gameObject);
         }
             
@@ -80,6 +81,7 @@ public class MoveShell : MonoBehaviour
         //ファイヤーボールに当たったら死ぬ
         if (collision.gameObject.tag == "Attack")
         {
+            GameManager.instance.AddScore(1000);
             Destroy(this.gameObject);
         }
     }

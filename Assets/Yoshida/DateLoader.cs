@@ -17,6 +17,6 @@ public class DateLoader : MonoBehaviour
 
         _totalScoreText.text = ("Score\n" + _totalScore.ToString());
 
-        _totalCoinText.text = ("Coin\n" + _totalScore.ToString());
+        _totalCoinText.text = ("Coin\n" + _totalCoin.ToString());
     }
 }
