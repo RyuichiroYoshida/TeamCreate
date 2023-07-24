@@ -31,6 +31,12 @@ public class NotMoveShell : Enemy
             Instantiate(enemy.stompPrefub, this.transform.position, enemy.stompPrefub.transform.rotation);
             Destroy(this.gameObject);
 
+
+        }
+
+        if (collision.gameObject.tag == "Attack")
+        {
+            Destroy(this.gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

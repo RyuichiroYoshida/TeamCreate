@@ -71,6 +71,12 @@ public class MoveShell : MonoBehaviour
             rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
             rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
         }
+
+        //ファイヤーボールに当たったら死ぬ
+        if (collision.gameObject.tag == "Attack")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void FixedUpdate()
