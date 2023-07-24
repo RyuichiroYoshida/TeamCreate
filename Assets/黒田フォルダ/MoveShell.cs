@@ -58,7 +58,7 @@ public class MoveShell : MonoBehaviour
             //動くコウラが敵に当たった時の処理
             Destroy(collision.gameObject, 1f);//破壊
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            
+
             if (collision.gameObject.GetComponent<CircleCollider2D>() != null)
             {
                 collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;//ｴﾈﾐｰの当たり判定をなくす
@@ -71,6 +71,25 @@ public class MoveShell : MonoBehaviour
             rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
             rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
         }
+        if(collision.gameObject.tag == "Shell")
+        {
+            //動くコウラが敵に当たった時の処理
+            Destroy(collision.gameObject, 1f);//破壊
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            if (collision.gameObject.GetComponent<CircleCollider2D>() != null)
+            {
+                collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;//ｴﾈﾐｰの当たり判定をなくす
+            }
+            else if (collision.gameObject.GetComponent<BoxCollider2D>() != null)
+            {
+                collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;//ｴﾈﾐｰの当たり判定をなくす
+            }
+
+            rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
+            rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
+        }
+            
 
         //ファイヤーボールに当たったら死ぬ
         if (collision.gameObject.tag == "Attack")
@@ -93,4 +112,6 @@ public class MoveShell : MonoBehaviour
 
         }
     }
+
+
 }
