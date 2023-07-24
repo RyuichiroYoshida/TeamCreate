@@ -53,7 +53,7 @@ public class MoveShell : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Shell")
         {
             //動くコウラが敵に当たった時の処理
             Destroy(collision.gameObject, 1f);//破壊
@@ -71,23 +71,9 @@ public class MoveShell : MonoBehaviour
             rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
             rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
         }
-        if(collision.gameObject.tag == "Shell")
+        if(collision.gameObject.tag == "Player")
         {
-            //動くコウラが敵に当たった時の処理
-            Destroy(collision.gameObject, 1f);//破壊
-            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-
-            if (collision.gameObject.GetComponent<CircleCollider2D>() != null)
-            {
-                collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;//ｴﾈﾐｰの当たり判定をなくす
-            }
-            else if (collision.gameObject.GetComponent<BoxCollider2D>() != null)
-            {
-                collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;//ｴﾈﾐｰの当たり判定をなくす
-            }
-
-            rb.AddForce(10 * Vector2.up, ForceMode2D.Impulse);//上に浮かせる
-            rb.constraints = RigidbodyConstraints2D.None;//FreezeRotationのチェックを外す
+            Destroy(this.gameObject);
         }
             
 
