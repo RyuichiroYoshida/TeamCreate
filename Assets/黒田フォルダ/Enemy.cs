@@ -39,18 +39,15 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Attack")
+        if (collision.gameObject.tag == "Attack" || collision.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
         }
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Shell")
         {
             Direction();
         }
-        if(collision.gameObject.tag == "Shell")
-        {
-            Direction();
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
