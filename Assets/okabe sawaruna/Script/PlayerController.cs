@@ -5,12 +5,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _speed = 1;
     [SerializeField] float _dashSpeed = 5f;
     [SerializeField] float _jumpPower = 10;
+    
     float _dash = 1;
     public Rigidbody2D _rb;
     private string _isGroundTag = "IsGround";
     bool IsGround = false;
-
     public static PlayerController Instance;
+
 
     private void Awake()  //シングルトン化
     {
@@ -45,9 +46,17 @@ public class PlayerController : MonoBehaviour
     {
         IsGround = false;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            EnemyHit();
+        }
+    }
     protected void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+       
     }
     public void Update()
     {
@@ -79,7 +88,11 @@ public class PlayerController : MonoBehaviour
     }
     public virtual void FireAttack()
     {
-
     }
+    public virtual void EnemyHit()
+    {
+        // GameManager.instance.GameOver();
+        Debug.Log("黒田が死んだ");
+    }
+   
 }
-

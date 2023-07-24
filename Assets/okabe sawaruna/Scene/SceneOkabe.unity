@@ -755,6 +755,10 @@ PrefabInstance:
       propertyPath: _dashSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6840810484153917290, guid: 1d04db854ba49f649a215dfb69dc0823, type: 3}
+      propertyPath: _godCoolTime
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6840810484153917295, guid: 1d04db854ba49f649a215dfb69dc0823, type: 3}
       propertyPath: m_RootOrder
       value: 2
