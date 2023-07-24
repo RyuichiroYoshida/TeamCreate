@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FireMarioController : PlayerController
 {
     [SerializeField] GameObject _fireBallPrefab;
+    [SerializeField] GameObject __StandMarioPrefab;
     [SerializeField] int _coolTime = 0;
     int _timer = 0;
+   
     
 
     Transform _muzzle;
@@ -23,6 +22,12 @@ public class FireMarioController : PlayerController
             Instantiate(_fireBallPrefab, _muzzle.transform.position, Quaternion.identity);
             _timer = 0;
         }
+    }
+    public override void EnemyHit()
+    {
+        Instantiate(__StandMarioPrefab, transform.position, Quaternion.identity);
+        Debug.Log("デフォルトマリオになりました");
+        Destroy(this.gameObject);
     }
     private void FixedUpdate()
     {
