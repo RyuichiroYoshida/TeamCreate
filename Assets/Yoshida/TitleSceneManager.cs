@@ -17,8 +17,8 @@ public class TitleSceneManager : MonoBehaviour
         print("Start");
     }
 
-    public void FadeOut()
+    public void FadeOut(int number)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(number);
     }
 }

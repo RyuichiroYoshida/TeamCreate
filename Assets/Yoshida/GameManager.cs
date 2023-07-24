@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     int _second;
 
     [SerializeField, Header("ゴールポストアニメーション")] Animator _goalAnim;
+    [SerializeField, Header("フェードアウトアニメーション")] Animator _fadeOut;
 
     bool _isGameOver = false;
     public bool IsGameOver => _isGameOver;
@@ -112,8 +113,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Score", _totalScore);
     }
 
-    public void TitleButtonClick()
-    {
-        SceneManager.LoadScene(0);
-    }
+    //public void TitleButtonClick()
+    //{
+    //    SceneManager.LoadScene(0);
+    //}
 }
