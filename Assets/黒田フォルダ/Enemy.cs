@@ -47,6 +47,10 @@ public class Enemy : MonoBehaviour
         {
             Direction();
         }
+        if(collision.gameObject.tag == "Shell")
+        {
+            Direction();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
