@@ -187,6 +187,7 @@ MonoBehaviour:
   _speed: 5
   _dashSpeed: 1.5
   _jumpPower: 8
+  _camera: {fileID: 7541203773362370707, guid: 2fb81f25983a0884b84e8ab9f278440b, type: 3}
   _rb: {fileID: 0}
   _fireBallPrefab: {fileID: 2459917725900287688, guid: 2ef9e055d8694ca42bc65c7d2190a542, type: 3}
   __StandMarioPrefab: {fileID: 6840810484153917297, guid: 1d04db854ba49f649a215dfb69dc0823, type: 3}

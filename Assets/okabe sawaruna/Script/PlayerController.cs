@@ -1,10 +1,13 @@
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _speed = 1;
     [SerializeField] float _dashSpeed = 5f;
     [SerializeField] float _jumpPower = 10;
+
+    [SerializeField] CinemachineVirtualCamera _camera;
     
     float _dash = 1;
     public Rigidbody2D _rb;
@@ -56,7 +59,9 @@ public class PlayerController : MonoBehaviour
     protected void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-       
+        CinemachineVirtualCamera camera = GameObject.Find("PlayerCamera").gameObject.GetComponent<CinemachineVirtualCamera>();
+        camera.Follow = this.transform;
+
     }
     public void Update()
     {
@@ -91,7 +96,7 @@ public class PlayerController : MonoBehaviour
     }
     public virtual void EnemyHit()
     {
-        // GameManager.instance.GameOver();
+        GameManager.instance.GameOver();
         Debug.Log("çïìcÇ™éÄÇÒÇæ");
     }
    
