@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _jumpPower = 10;
 
     [SerializeField] CinemachineVirtualCamera _camera;
-    
+    SpriteRenderer _playerSprite;
+
     float _dash = 1;
     public Rigidbody2D _rb;
     private string _isGroundTag = "IsGround";
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
     protected void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _playerSprite = GetComponent<SpriteRenderer>();
         CinemachineVirtualCamera camera = GameObject.Find("PlayerCamera").gameObject.GetComponent<CinemachineVirtualCamera>();
         camera.Follow = this.transform;
 
@@ -96,8 +98,8 @@ public class PlayerController : MonoBehaviour
     }
     public virtual void EnemyHit()
     {
+        _playerSprite.color = Color.red;
         GameManager.instance.GameOver();
         Debug.Log("çïìcÇ™éÄÇÒÇæ");
     }
-   
 }
