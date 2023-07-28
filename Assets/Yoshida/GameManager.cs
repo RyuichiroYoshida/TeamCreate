@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("所持スコアテキスト格納用")] Text _hasScoreText;
 
     [SerializeField, Header("リトライボタン")] GameObject _returnButton;
+    [SerializeField, Header("ゲームオーバーテキスト")] GameObject _gameOverText;
     [SerializeField, Header("タイトルボタン")] GameObject _titleButton;
+    [SerializeField, Header("ゲームクリアテキスト")] GameObject _gameClearlText;
     [SerializeField, Header("制限時間テキスト格納用")] Text _timeText;
     [SerializeField, Header("制限時間")] float _timeLimit = 300;
     public float TimeLimit => _timeLimit;
@@ -51,6 +53,9 @@ public class GameManager : MonoBehaviour
     {
         _returnButton?.SetActive(false);
         _titleButton?.SetActive(false);
+
+        _gameOverText?.SetActive(false);
+        _gameClearlText?.SetActive(false);
     }
 
     void Update()
@@ -88,6 +93,7 @@ public class GameManager : MonoBehaviour
         playerRb.Sleep();
         _isGameOver = true;
         _returnButton?.SetActive(true);
+        _gameOverText?.SetActive(true);
         Save();
         print("GameOver");
     }
@@ -100,6 +106,7 @@ public class GameManager : MonoBehaviour
         _timeLimit = 0;
         _second = 0;
         _titleButton?.SetActive(true);
+        _gameClearlText?.SetActive(true);
         _goalAnim.Play("GoalShot");
         Save();
         print("Goal");
