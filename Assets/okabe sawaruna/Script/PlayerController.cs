@@ -67,25 +67,27 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
-        
-        float h = Input.GetAxisRaw("Horizontal");
-        _rb.velocity = new Vector2(h * _speed * _dash, _rb.velocity.y);
-        if (Input.GetButtonDown("Jump") && IsGround == true)
+        if (!GameManager.instance.IsGameOver)
         {
-            Jump();
-            Debug.Log("ジャンプ");
-        }
-        if (Input.GetKey(KeyCode.Return) && IsGround == true)
-        {
-            _dash = _dashSpeed;
-        }
-        else
-        {
-            _dash = 1;
-        }
-        if (Input.GetButtonDown("Fire2"))
-        {
-            FireAttack();
+            float h = Input.GetAxisRaw("Horizontal");
+            _rb.velocity = new Vector2(h * _speed * _dash, _rb.velocity.y);
+            if (Input.GetButtonDown("Jump") && IsGround == true)
+            {
+                Jump();
+                Debug.Log("ジャンプ");
+            }
+            if (Input.GetKey(KeyCode.Return) && IsGround == true)
+            {
+                _dash = _dashSpeed;
+            }
+            else
+            {
+                _dash = 1;
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                FireAttack();
+            }
         }
     }
     public void Jump()

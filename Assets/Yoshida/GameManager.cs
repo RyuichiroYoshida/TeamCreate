@@ -84,6 +84,8 @@ public class GameManager : MonoBehaviour
     /// <summary>ゲームオーバー処理</summary>
     public void GameOver()
     {
+        Rigidbody2D playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        playerRb.Sleep();
         _isGameOver = true;
         _returnButton?.SetActive(true);
         Save();
